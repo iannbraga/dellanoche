@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <p style="color: green"><%#= notice %></p>
+
+  <h1>Eventos</h1>
+
+  <div id="eventos">
+    <% @eventos.each do |evento| %>
+      <%= link_to evento, class: 'nav-link' do %>
+        <%= render evento %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= link_to "Novo evento", new_evento_path, class: 'btn btn-primary' %>
+
+</div>

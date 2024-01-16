@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <h1 class="text-center">Editing evento</h1>
+
+  <%= render "form", evento: @evento %>
+
+  <br>
+
+  <div>
+    <%= link_to "Ver evento", @evento, class: 'btn btn-primary' %> |
+    <%= link_to "Voltar", eventos_path, class: 'btn btn-danger' %>
+  </div>
+
+</div>

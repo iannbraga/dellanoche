@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <%= form_with(model: evento) do |form| %>
+    <% if evento.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(evento.errors.count, "error") %> prohibited this evento from being saved:</h2>
+
+        <ul>
+          <% evento.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-12 p-2">
+        <%= form.label :nome_evento, class: 'form-label' %>
+        <%= form.text_field :nome_evento, class: 'form-control' %>
+      </div>
+
+      <div class="col-12 p-2">
+        <%= form.label :casa_de_show, class: 'form-label' %>
+        <%= form.text_field :casa_de_show, class: 'form-control' %>
+      </div>
+
+      <div class="col-3 p-2">
+        <%= form.label :data_inicio, class: 'form-label' %>
+        <%= form.date_field :data_inicio, value: Date.today, class: 'form-control' %>
+      </div>
+
+      <div class="col-3 p-2">
+        <%= form.label :data_termino, class: 'form-label' %>
+        <%= form.date_field :data_termino, value: Date.today, class: 'form-control' %>
+      </div>
+
+      <div class="col-3 p-2">
+        <%= form.label :hora_inicio, class: 'form-label' %>
+        <%= form.time_field :hora_inicio, value: Time.now.strftime("%H:%M"), class: 'form-control' %>
+      </div>
+
+      <div class="col-3 p-2">
+        <%= form.label :hora_termino, class: 'form-label' %>
+        <%= form.time_field :hora_termino, value: Time.now.strftime("%H:%M"), class: 'form-control' %>
+      </div>
+
+      <div class="col-4 p-2">
+        <%= form.label :horas_tocadas, class: 'form-label' %>
+        <%= form.time_field :horas_tocadas, class: 'form-control' %>
+      </div>
+
+      <div class="col-4 p-2">
+      <%= form.label :cache, class: 'form-label' %>
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">R$</span>
+          <%= form.text_field :cache, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="col-4 p-2">
+        <%= form.label :cover, class: 'form-label' %>
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">R$</span>
+          <%= form.text_field :cover, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="col-12 p-2">
+        <%= form.label :localizacao, class: 'form-label' %>
+        <%= form.text_field :localizacao, class: 'form-control' %>
+      </div>
+
+      <div class="col-6 p-2 d-flex justify-content-center">
+        <%= form.submit 'Cadastrar', class: 'btn btn-primary w-75' %>
+      </div>
+
+      <div class="col-6 p-2 d-flex justify-content-center">
+        <%= link_to 'Voltar', eventos_path, class: 'btn btn-danger w-75' %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
