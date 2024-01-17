@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR" data-bs-theme="light">
   <head>
     <title>Dellanoche</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,6 +11,11 @@
   </head>
 
   <body>
+    <%= render 'shared/navbar' %>
+
+    <div class="mt-5 text-center">
+      <h1 class="font-happy" style="font-size: 120px;color: #ba75aa;">Dellanoche</h1>
+    </div>
     <div class="container mt-5">
       <%= yield %>
     </div>
