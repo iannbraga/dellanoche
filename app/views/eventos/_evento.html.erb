@@ -1,52 +1,58 @@
-<div id="<%= dom_id evento %>">
-  <p>
-    <strong>Nome evento:</strong>
-    <%= evento.nome_evento %>
-  </p>
+<div class="container mt-5" id="<%= dom_id evento %>">
+  <h1 class="mb-4">Detalhes do Evento</h1>
 
-  <p>
-    <strong>Casa de show:</strong>
-    <%= evento.casa_de_show %>
-  </p>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <h5 class="card-title">Nome do Evento</h5>
+          <p class="card-text"><%= evento.nome_evento %></p>
+        </div>
+        <div class="col d-flex justify-content-end">
+          <% unless current_page?(eventos_path) %>
+            <ul class="list-unstyled">
+              <li>
+                <%= link_to edit_evento_path(@evento), class: 'nav-link' do %>
+                  <i class="bi bi-pencil text-warning fs-5"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to evento_path(@evento), data: { turbo_method: :delete }, class: 'nav-link' do %>
+                  <i class="bi bi-trash text-danger fs-5"></i>
+                <% end %>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    <strong>Data inicio:</strong>
-    <%= evento.data_inicio %>
-  </p>
+  <div class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">Casa de Show</h5>
+      <p class="card-text"><%= evento.casa_de_show %></p>
+    </div>
+  </div>
 
-  <p>
-    <strong>Data termino:</strong>
-    <%= evento.data_termino %>
-  </p>
+  <div class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">Datas e Horas</h5>
+      <p class="card-text">Data Início: <%= evento.data_inicio %></p>
+      <p class="card-text">Data Término: <%= evento.data_termino %></p>
+      <p class="card-text">Hora Início: <%= evento.hora_inicio %></p>
+      <p class="card-text">Hora Término: <%= evento.hora_termino %></p>
+    </div>
+  </div>
 
-  <p>
-    <strong>Hora inicio:</strong>
-    <%= evento.hora_inicio %>
-  </p>
-
-  <p>
-    <strong>Hora termino:</strong>
-    <%= evento.hora_termino %>
-  </p>
-
-  <p>
-    <strong>Horas tocadas:</strong>
-    <%= evento.horas_tocadas %>
-  </p>
-
-  <p>
-    <strong>Cache:</strong>
-    <%= evento.cache %>
-  </p>
-
-  <p>
-    <strong>Cover:</strong>
-    <%= evento.cover %>
-  </p>
-
-  <p>
-    <strong>Localizacao:</strong>
-    <%= evento.localizacao %>
-  </p>
+  <div class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">Detalhes Adicionais</h5>
+      <p class="card-text">Horas Tocadas: <%= evento.horas_tocadas %> hrs</p>
+      <p class="card-text">Cache: R$ <%= number_with_precision(evento.cache, precision: 2) %></p>
+      <p class="card-text">Cover: R$ <%= number_with_precision(evento.cover, precision: 2) %></p>
+      <p class="card-text">Localização: <a href="<%= evento.localizacao %>"><i class="bi bi-link-45deg fs-5"></i></a> </p>
+    </div>
+  </div>
 
 </div>

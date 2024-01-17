@@ -21,9 +21,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_16_221941) do
     t.date "data_termino"
     t.time "hora_inicio"
     t.time "hora_termino"
-    t.time "horas_tocadas"
-    t.decimal "cache"
-    t.decimal "cover"
+    t.integer "horas_tocadas"
+    t.integer "minutos_tocados"
+    t.decimal "cache", precision: 8, scale: 2
+    t.decimal "cover", precision: 8, scale: 2
     t.string "localizacao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

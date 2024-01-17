@@ -13,12 +13,12 @@
     <% end %>
 
     <div class="row">
-      <div class="col-12 p-2">
+      <div class="col-7 p-2">
         <%= form.label :nome_evento, class: 'form-label' %>
         <%= form.text_field :nome_evento, class: 'form-control' %>
       </div>
 
-      <div class="col-12 p-2">
+      <div class="col-5 p-2">
         <%= form.label :casa_de_show, class: 'form-label' %>
         <%= form.text_field :casa_de_show, class: 'form-control' %>
       </div>
@@ -44,8 +44,21 @@
       </div>
 
       <div class="col-4 p-2">
-        <%= form.label :horas_tocadas, class: 'form-label' %>
-        <%= form.time_field :horas_tocadas, class: 'form-control' %>
+        <label class="form-label">Horas / Minutos</label>
+        <div class="row" data-controller="evento">
+          <div class="col">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping">H</span>
+              <%= form.number_field :horas_tocadas, value: 0, class: 'form-control', data: { action: 'input->evento#validate', 'evento-target': 'horas' } %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping">M</span>
+              <%= form.number_field :minutos_tocadas, value: 0, class: 'form-control', data: { action: 'input->evento#validate', "evento-target": 'minutos'} %>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="col-4 p-2">
@@ -70,11 +83,11 @@
       </div>
 
       <div class="col-6 p-2 d-flex justify-content-center">
-        <%= form.submit 'Cadastrar', class: 'btn btn-primary w-75' %>
+        <%= form.submit "#{current_page?(new_evento_path) ? 'Cadastrar' : 'Salvar' }", class: 'btn btn-primary w-75' %>
       </div>
 
       <div class="col-6 p-2 d-flex justify-content-center">
-        <%= link_to 'Voltar', eventos_path, class: 'btn btn-danger w-75' %>
+        <%= link_to 'Voltar', eventos_path, data: { turbo_method: :get }, class: 'btn btn-danger w-75' %>
       </div>
     </div>
   <% end %>
