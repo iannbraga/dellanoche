@@ -1,17 +1,21 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <%#= image_tag 'dellanoche_logo' %>
-    <a class="navbar-brand font-happy fs-3" href="#">Dellanoche</a>
+    
+    <%= link_to 'Dellanoche', root_path, class: 'navbar-brand font-2 fs-1' %>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <%= link_to "Eventos", eventos_path, class: "nav-link #{'active' if current_page?(eventos_path)}" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <%= link_to 'Paleta', index_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Fontes', fonts_path, class: 'nav-link' %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -24,14 +28,12 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <div class="">
+        <%= link_to root_path, class: 'nav-link fs-4' do %>
+          <i class="bi bi-person"></i>
+        <% end %>
+      </div>
     </div>
   </div>
 </nav>

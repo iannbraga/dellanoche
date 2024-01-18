@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   
   resources :eventos
   
-  get 'index', to: 'pages#index'
+  get 'index', to: 'pages#index', as: :index
+  get 'fonts', to: 'pages#fonts', as: :fonts
 
   # Defines the root path route ("/")
   root "eventos#index"

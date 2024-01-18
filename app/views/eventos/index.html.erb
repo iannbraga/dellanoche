@@ -43,6 +43,8 @@
     </div>
   </div>
 
-  <%= link_to "Novo evento" , new_evento_path, class: 'btn btn-primary' %>
+  <%= button_to new_evento_path, method: :get, class: 'nav-link floating-button fs-4 bg-dark rounded-circle' do %>
+    <i class="bi bi-plus-lg text-white"></i>
+  <% end %>
 
 </div>

@@ -3,7 +3,7 @@ class EventosController < ApplicationController
 
   # GET /eventos or /eventos.json
   def index
-    @eventos = Evento.all
+    @eventos = Evento.all.order("created_at DESC")
   end
 
   # GET /eventos/1 or /eventos/1.json
@@ -65,6 +65,6 @@ class EventosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def evento_params
-      params.require(:evento).permit(:nome_evento, :casa_de_show, :data_inicio, :data_termino, :hora_inicio, :hora_termino, :horas_tocadas, :cache, :cover, :localizacao)
+      params.require(:evento).permit(:nome_evento, :descricao, :casa_de_show, :data_inicio, :data_termino, :hora_inicio, :hora_termino, :horas_tocadas, :cache, :cover, :localizacao)
     end
 end
