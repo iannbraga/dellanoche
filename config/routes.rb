@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   resources :eventos
   
+  get 'dashboard', to: 'pages#dashboard', as: :dashboard
   get 'index', to: 'pages#index', as: :index
   get 'fonts', to: 'pages#fonts', as: :fonts
 

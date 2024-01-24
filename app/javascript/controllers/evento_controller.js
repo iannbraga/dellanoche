@@ -17,6 +17,10 @@ export default class extends Controller {
       return;
     }
 
+    if(minutos < 0){
+      minutos = 0
+    }
+
     if(minutos > 59){
       horas = horas + 1
       minutos = 0

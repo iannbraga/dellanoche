@@ -1,10 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<div class="container-fluid">
+  <p style="color: green"><%= notice %></p>
 
-<%= render @evento %>
+  <h1>
+    <%= link_to eventos_path, class:'nav-link' do %>
+      <i class="bi bi-arrow-left fs-4 align-middle"></i>
+      Detalhes do evento
+    <% end %>
+  </h1>
 
-<div class="row">
-  <div class="col">
-    
-  </div>
+  <%= render @evento %>
 
 </div>
