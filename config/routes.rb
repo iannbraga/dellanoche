@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :usuarios
+  get 'usuarios/new'
+  get 'usuarios/create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
-  resources :eventos
+  devise_for :usuarios, skip: :registrations
+
+  resources :usuarios, only: %i[ new create ]
   
+  resources :eventos
+
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
   get 'index', to: 'pages#index', as: :index
   get 'fonts', to: 'pages#fonts', as: :fonts

@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <% @eventos_por_mes.each do |mes, eventos_mensais| %>
+    <h2><%= mes_br(mes) %></h2>
+
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col" class="col-md-4 text-start">Nome</th>
+          <th scope="col" class="col-md-2 ">Cachê</th>
+          <th scope="col" class="col-md-2 ">Covert</th>
+          <th scope="col" class="col-md-4 ">Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% eventos_mensais.each do |evento| %>
+          <tr>
+            <td class="text-start"><%= evento.nome_evento %></td>
+            <td>R$ <%= number_with_precision(evento.cache, precision: 2) %></td>
+            <td>R$ <%= number_with_precision(evento.cover, precision: 2) %></td>
+            <td><%= formatar_data_br(evento.data_inicio) %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <th class="text-start" scope="row">Total</th>
+          <th>R$ <%= number_with_precision(eventos_mensais.sum(&:cache), precision: 2) %></td>
+          <th>R$ <%= number_with_precision(eventos_mensais.sum(&:cover), precision: 2) %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>

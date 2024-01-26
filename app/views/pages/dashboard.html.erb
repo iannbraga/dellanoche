@@ -1,38 +1,63 @@
 <div class="container-fluid">
-  <% @eventos_por_mes.each do |mes, eventos_mensais| %>
-    <h2><%= mes_br(mes) %></h2>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 col-3 p-2 pe-4 pb-4">
+            <div class="card pt-4 border-4 border-top-0 border-end-0 border-bottom-0 border-primary" style="height: 100px;"> <%# 80px == 5rem %>
+                <ul class="list-unstyled list-inline d-flex justify-content-around">
+                    <li class="list-inline-item">
+                        <h6 class="text-primary">RENDA (MENSAL)</h6>
+                        <span class="fw-bold text-dark-emphasis">R$ 5.000,00</span>
+                    </li>
+                    <li class="list-inline-item">
+                        <i class="bi bi-calendar fs-1 text-primary"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-    <table class="table text-center">
-      <thead>
-        <tr>
-          <th class="text-start" scope="col">Nome</th>
-          <th scope="col">Cachê</th>
-          <th scope="col">Covert</th>
-          <th scope="col">Data</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% eventos_mensais.each do |evento| %>
-          <tr>
-            <th class="text-start" scope="row"><%= evento.nome_evento %></th>
-            <td>R$ <%= number_with_precision(evento.cache, precision: 2) %></td>
-            <td>R$ <%= number_with_precision(evento.cover, precision: 2) %></td>
-            <td><%= formatar_data_br(evento.data_inicio) %></td>
-          </tr>
-        <% end %>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th class="text-start" scope="row">Total</th>
-          <td>R$ <%= number_with_precision(eventos_mensais.sum(&:cache), precision: 2) %></td>
-          <td>R$ <%= number_with_precision(eventos_mensais.sum(&:cover), precision: 2) %></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  <% end %>
+        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 col-3 p-2 pe-4 pb-4">
+            <div class="card pt-4 border-4 border-top-0 border-end-0 border-bottom-0 border-success" style="height: 100px;"> <%# 80px == 5rem %>
+                <ul class="list-unstyled list-inline d-flex justify-content-around">
+                    <li class="list-inline-item">
+                        <h6 class="text-success">RENDA (ANUAL)</h6>
+                        <span class="fw-bold text-dark-emphasis">R$ 60.000,00</span>
+                    </li>
+                    <li class="list-inline-item">
+                        <i class="bi bi-currency-dollar fs-1 text-success"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 col-3 p-2 pe-4 pb-4">
+            <div class="card pt-4 border-4 border-top-0 border-end-0 border-bottom-0 border-warning" style="height: 100px;"> <%# 80px == 5rem %>
+                <ul class="list-unstyled list-inline d-flex justify-content-around">
+                    <li class="list-inline-item">
+                        <h6 class="text-warning">GIGS (MENSAL)</h6>
+                        <span class="fw-bold text-dark-emphasis">20</span>
+                    </li>
+                    <li class="list-inline-item">
+                        <i class="bi bi-boombox fs-1 text-warning"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 col-3 p-2 pe-4 pb-4">
+            <div class="card pt-4 border-4 border-top-0 border-end-0 border-bottom-0 border-info" style="height: 100px;"> <%# 80px == 5rem %>
+                <ul class="list-unstyled list-inline d-flex justify-content-around">
+                    <li class="list-inline-item">
+                        <h6 class="text-info">GIGS (ANUAL)</h6>
+                        <span class="fw-bold text-dark-emphasis">80</span>
+                    </li>
+                    <li class="list-inline-item">
+                        <i class="bi bi-boombox fs-1 text-info"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+<%#= render 'table_eventos' %>
