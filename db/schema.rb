@@ -21,14 +21,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_25_173654) do
     t.date "data_termino"
     t.time "hora_inicio"
     t.time "hora_termino"
-    t.integer "horas_tocadas"
-    t.integer "minutos_tocados"
-    t.decimal "cache", precision: 8, scale: 2
-    t.decimal "cover", precision: 8, scale: 2
-    t.string "localizacao"
+    t.integer "horas_tocadas", default: 0
+    t.integer "minutos_tocados", default: 0
+    t.decimal "cache", precision: 8, scale: 2, default: "0.0"
+    t.decimal "covert", precision: 8, scale: 2, default: "0.0"
+    t.string "localizacao", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "descricao"
+    t.text "descricao", default: ""
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -39,8 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_25_173654) do
     t.datetime "remember_created_at"
     t.string "nome"
     t.string "sobrenome"
-    t.boolean "ativo"
-    t.integer "perfil"
+    t.boolean "ativo", default: true
+    t.integer "perfil", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_usuarios_on_email", unique: true

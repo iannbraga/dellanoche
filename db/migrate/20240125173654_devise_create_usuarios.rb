@@ -34,8 +34,8 @@ class DeviseCreateUsuarios < ActiveRecord::Migration[7.0]
 
       t.string :nome
       t.string :sobrenome
-      t.boolean :ativo
-      t.integer :perfil
+      t.boolean :ativo, default: true
+      t.integer :perfil, default: 0
 
       t.timestamps null: false
     end

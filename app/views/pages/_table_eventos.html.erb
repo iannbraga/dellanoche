@@ -16,14 +16,14 @@
           <tr>
             <td class="text-start"><%= evento.nome_evento %></td>
             <td>R$ <%= number_with_precision(evento.cache, precision: 2) %></td>
-            <td>R$ <%= number_with_precision(evento.cover, precision: 2) %></td>
+            <td>R$ <%= number_with_precision(evento.covert, precision: 2) %></td>
             <td><%= formatar_data_br(evento.data_inicio) %></td>
           </tr>
         <% end %>
         <tr>
           <th class="text-start" scope="row">Total</th>
           <th>R$ <%= number_with_precision(eventos_mensais.sum(&:cache), precision: 2) %></td>
-          <th>R$ <%= number_with_precision(eventos_mensais.sum(&:cover), precision: 2) %></td>
+          <th>R$ <%= number_with_precision(eventos_mensais.sum(&:covert), precision: 2) %></td>
         </tr>
       </tbody>
     </table>

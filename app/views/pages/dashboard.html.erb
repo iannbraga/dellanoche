@@ -5,7 +5,7 @@
                 <ul class="list-unstyled list-inline d-flex justify-content-around">
                     <li class="list-inline-item">
                         <h6 class="text-primary">RENDA (MENSAL)</h6>
-                        <span class="fw-bold text-dark-emphasis">R$ 5.000,00</span>
+                        <span class="fw-bold text-dark-emphasis"><%= number_with_precision(@total / 12, precision: 2) %></span>
                     </li>
                     <li class="list-inline-item">
                         <i class="bi bi-calendar fs-1 text-primary"></i>
@@ -19,7 +19,7 @@
                 <ul class="list-unstyled list-inline d-flex justify-content-around">
                     <li class="list-inline-item">
                         <h6 class="text-success">RENDA (ANUAL)</h6>
-                        <span class="fw-bold text-dark-emphasis">R$ 60.000,00</span>
+                        <span class="fw-bold text-dark-emphasis">R$ <%= @total %></span>
                     </li>
                     <li class="list-inline-item">
                         <i class="bi bi-currency-dollar fs-1 text-success"></i>
@@ -33,7 +33,7 @@
                 <ul class="list-unstyled list-inline d-flex justify-content-around">
                     <li class="list-inline-item">
                         <h6 class="text-warning">GIGS (MENSAL)</h6>
-                        <span class="fw-bold text-dark-emphasis">20</span>
+                        <span class="fw-bold text-dark-emphasis"><%= @eventos.count / 2 %></span>
                     </li>
                     <li class="list-inline-item">
                         <i class="bi bi-boombox fs-1 text-warning"></i>
@@ -47,7 +47,7 @@
                 <ul class="list-unstyled list-inline d-flex justify-content-around">
                     <li class="list-inline-item">
                         <h6 class="text-info">GIGS (ANUAL)</h6>
-                        <span class="fw-bold text-dark-emphasis">80</span>
+                        <span class="fw-bold text-dark-emphasis"><%= @eventos.count %></span>
                     </li>
                     <li class="list-inline-item">
                         <i class="bi bi-boombox fs-1 text-info"></i>
@@ -60,4 +60,4 @@
 
 
 
-<%#= render 'table_eventos' %>
+<%= render 'table_eventos' %>
