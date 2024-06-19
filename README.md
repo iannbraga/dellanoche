@@ -1,17 +1,23 @@
-# README
+### README
 
-* Ruby version
+* Ruby version:
+   - 3.2.2
 
 * System dependencies
+   - Rails 7.0.8
 
 * Configuration
 
 * Database creation
+  ```bash
   docker run --name postgres -e POSTGRES_PASSWORD=postgres -p 5434:5432 -d postgres
   rails db:create db:migrate
+  ```
 
 * Database initialization
+  ```bash
   rails db:seed
+  ```
 
 * How to run the test suite
 
@@ -19,8 +25,9 @@
 
 * Deployment instructions
 
+---
 
-A aplicação deve permitir que os usuários gerenciem eventos, locais, contatos e informações financeiras de maneira eficiente. Aqui está o contexto detalhado da aplicação:
+A aplicação permite que usuários gerenciem eventos, locais, contatos e informações financeiras de maneira eficiente. Aqui está o contexto detalhado da aplicação:
 
 ### Contexto da Aplicação
 
@@ -30,27 +37,25 @@ A aplicação tem como objetivo principal fornecer uma plataforma para DJs e out
 A aplicação visa proporcionar uma plataforma robusta e eficiente para DJs gerenciarem todos os aspectos relacionados aos seus eventos, desde a criação e gestão dos eventos até o controle financeiro detalhado, além de facilitar a gestão de locais e contatos associados.
 
 #### Usuários:
-1. **DJs**: Gerenciam seus eventos, acompanham os ganhos (cache e covert) e mantêm informações de locais e contatos. Gerenciam eventos, acompanham ganhos financeiros, gerenciam locais e contatos.
-2. **Administradores**: Têm acesso a todas as funcionalidades para gerenciar usuários, eventos e locais. Gerenciam todos os aspectos da plataforma, incluindo usuários, eventos, locais, contatos e relatórios globais
-3. **Desenvolvedores**: Podem acessar funcionalidades específicas de desenvolvimento e manutenção da plataforma. Responsáveis pelo desenvolvimento, manutenção e melhorias técnicas da plataforma.
+1. **DJs**: Gerenciam seus eventos, acompanham os ganhos (cache e covert) e mantêm informações de locais e contatos.
+2. **Administradores**: Têm acesso a todas as funcionalidades para gerenciar usuários, eventos e locais.
+3. **Desenvolvedores**: Podem acessar funcionalidades específicas de desenvolvimento e manutenção da plataforma.
 
 ### Funcionalidades Principais:
 
 #### Gestão de Usuários:
-- **Cadastro de Usuários**: Registro de novos usuários com informações básicas como email, senha, nome, sobrenome, ativo (status do usuário) e perfil (administrador, desenvolvedor, DJ).
+- **Cadastro de Usuários**: Registro de novos usuários com informações básicas como email, senha, nome, sobrenome, ativo e perfil.
 - **Autenticação**: Login e logout dos usuários, utilizando email e senha.
-- **Registro e Autenticação**: Utilização de autenticação segura e possivelmente integração com serviços como OAuth para facilitar o login.
 - **Perfis de Usuário**: Além dos perfis básicos (DJ, administrador, desenvolvedor), considerar permissões granulares para diferentes funcionalidades da aplicação.
 
 #### Gestão de Eventos:
-- **Criação de Eventos**: DJs podem criar e gerenciar eventos, especificando nome, descrição, data e hora de início e término, horas tocadas, cache (valor recebido do contratante) e covert (valor recebido dos clientes como bonificação).
+- **Criação de Eventos**: DJs podem criar e gerenciar eventos, especificando nome, descrição, data e hora de início e término, horas tocadas, cache e covert.
 - **Atribuição de Locais**: Associar cada evento a um local específico onde o evento será realizado.
-- **Associação a Usuários**: Registrar qual DJ ou usuário está associado ao evento.
 - **Calendário de Eventos**: Visualização de eventos em um calendário com opção de filtragem por data, localização, DJ responsável, etc.
 - **Reservas de Eventos**: Capacidade de pré-reservar eventos com confirmação posterior.
 
 #### Gestão Financeira:
-- **Detalhamento de Ganhos**: Além dos campos de cache e covert, incluir detalhes adicionais como despesas associadas ao evento (por exemplo, custos de transporte, equipamentos).
+- **Detalhamento de Ganhos**: Além dos campos de cache e covert, incluir detalhes adicionais como despesas associadas ao evento.
 - **Relatórios Financeiros Avançados**: Gerar relatórios detalhados com análise de lucros por evento, comparação de desempenho ao longo do tempo, previsões financeiras baseadas em eventos futuros, entre outros.
 
 #### Gestão de Locais:
@@ -72,7 +77,6 @@ A aplicação visa proporcionar uma plataforma robusta e eficiente para DJs gere
 #### Gestão de Cidades e Estados:
 - **Cadastro de Cidades**: Adicionar novas cidades com nome e sigla, associando cada cidade a um estado.
 - **Cadastro de Estados**: Adicionar novos estados com nome e sigla.
-- **Dados Geográficos**: Utilização de API de geolocalização para preencher automaticamente informações de cidades e estados com base em um banco de dados geográfico.
 
 ### Relacionamentos e Interações:
 1. **Usuários e Eventos**: Cada evento é gerenciado por um usuário (DJ).
@@ -82,16 +86,6 @@ A aplicação visa proporcionar uma plataforma robusta e eficiente para DJs gere
 5. **Contatos e Telefones**: Cada contato tem um telefone associado.
 6. **Endereços e Cidades**: Cada endereço pertence a uma cidade.
 7. **Cidades e Estados**: Cada cidade pertence a um estado.
-1. **Eventos e Contratos**:
-   - Inclusão de funcionalidades para assinatura digital de contratos diretamente na plataforma.
-   - Armazenamento seguro de documentos relacionados aos eventos.
-
-2. **Avaliação de Desempenho**:
-   - Implementação de métricas de desempenho para avaliar a satisfação do cliente e o sucesso dos eventos.
-
-3. **Automatização de Tarefas**:
-   - Integração de sistemas de automação para envio de lembretes de eventos, confirmações de participação e solicitação de feedback pós-evento.
-
 
 ### Diagrama de Casos de Uso:
 
@@ -103,7 +97,6 @@ A aplicação visa proporcionar uma plataforma robusta e eficiente para DJs gere
    - Visualizar ganhos (cache e covert)
    - Gerenciar locais
    - Gerenciar contatos
-   - Além das funcionalidades básicas, o DJ pode configurar preferências avançadas de notificação, definir seu calendário de disponibilidade para eventos futuros e receber alertas personalizados.
 
 2. **Administrador**:
    - Gerenciar usuários
@@ -112,11 +105,9 @@ A aplicação visa proporcionar uma plataforma robusta e eficiente para DJs gere
    - Gerenciar endereços
    - Gerenciar contatos
    - Gerenciar cidades e estados
-   - Possibilidade de realizar auditorias de segurança, gerenciar permissões de acesso, criar relatórios customizados e integrar a aplicação com sistemas de CRM (Customer Relationship Management).
 
 3. **Desenvolvedor**:
    - Acesso a funcionalidades de manutenção e desenvolvimento da plataforma
-   - Além do desenvolvimento de novas funcionalidades, o desenvolvedor pode conduzir testes de integração, monitorar a performance da aplicação e aplicar correções de bugs conforme necessário.
 
 ### Fluxo de Trabalho:
 
@@ -140,92 +131,11 @@ A aplicação visa proporcionar uma plataforma robusta e eficiente para DJs gere
 5. **Relatórios e Financeiro**:
    - O DJ pode visualizar relatórios financeiros com ganhos (cache e covert) por evento.
    - Administradores podem gerar relatórios globais de eventos e locais.
-1. **Planejamento Pré-Evento**:
-   - Criação de checklist automatizado para garantir que todos os detalhes do evento sejam considerados.
-   - Atribuição de tarefas específicas aos membros da equipe envolvidos no evento.
-
-2. **Gestão de Mídias Sociais**:
-   - Integração com APIs de redes sociais para programação de postagens automáticas sobre os eventos planejados.
-
-3. **Análise Pós-Evento**:
-   - Coleta de feedback dos clientes e participantes do evento para melhoria contínua dos serviços oferecidos.
-
-## Experiência do Usuário:
-
-1. **Interface Intuitiva e Responsiva**:
-   - Desenvolvimento de uma interface de usuário (UI) intuitiva e responsiva, garantindo uma experiência agradável em dispositivos móveis e desktops.
-   
-2. **Personalização do Dashboard**:
-   - Opções para personalização do dashboard de cada usuário, exibindo métricas e informações relevantes de acordo com suas preferências e necessidades.
-
-### Segurança e Privacidade:
-
-1. **Segurança de Dados**:
-   - Implementação de criptografia robusta para proteger informações sensíveis dos usuários e dados financeiros.
-
-2. **Política de Privacidade Transparente**:
-   - Disponibilização de uma política de privacidade clara e acessível aos usuários, explicando como os dados são coletados, usados e protegidos.
-
-### Modelagem:
-   **Usuarios**:
-   - id
-   - email
-   - senha
-   - nome
-   - sobrenome
-   - ativo
-   - perfil
-
-   **Eventos**:
-   - id
-   - nome
-   - descricao
-   - data_hora_inicio
-   - data_hora_termino
-   - horas_tocadas
-   - cache
-   - covert
-   - local_id
-   - usuario_id
-
-   **Locais**:
-   - id
-   - nome
-   - descricao
-   - localizacao
-   - endereco_id
-
-   **Cidade**:
-   - nome
-   - sigla
-   - Estado
-
-   **Estado**:
-   - nome
-   - sigla
-   
-   **Enderecos**:
-   - id
-   - logradouro
-   - numero
-   - bairro
-   - Cidade
-   - cep
-
-   **Contatos**:
-   - id
-   - nome
-   - telefone_id
-   - local_id
-
-   **Telefones**:
-   - id
-   - ddd
-   - numero
 
 ### Exemplo de Diagrama ER Detalhado:
 
-Usuarios (id, email, senha, nome, sobrenome, ativo, perfil)
+```
+Usuarios (id, email, senha, nome, sobrenome, ativo, perfil_id)
    |
    |---< Eventos (id, nome, descricao, data_hora_inicio, data_hora_termino, horas_tocadas, cache, covert, local_id, usuario_id)
          |
@@ -240,9 +150,9 @@ Usuarios (id, email, senha, nome, sobrenome, ativo, perfil)
                      |--- Cidades (id, nome, sigla, estado_id)
                            |
                            |--- Estados (id, nome, sigla)
+```
 
-### Explicação Modelagem:
-Sim, a modelagem proposta atende muito bem às funcionalidades e ao contexto detalhado para a aplicação de gestão financeira para DJs e administradores. Aqui estão alguns pontos-chave que foram considerados e que fazem sentido:
+### Explicação da Modelagem:
 
 1. **Entidades Principais**: As entidades como `Usuarios`, `Eventos`, `Locais`, `Enderecos`, `Contatos` e `Telefones` são essenciais para gerenciar todos os aspectos dos eventos e locais associados.
 
@@ -250,9 +160,10 @@ Sim, a modelagem proposta atende muito bem às funcionalidades e ao contexto det
 
 3. **Funcionalidades Suportadas**: A modelagem permite suportar todas as funcionalidades principais mencionadas, como criação e gestão de eventos, controle financeiro detalhado, gerenciamento de locais e contatos, além da gestão de usuários com diferentes perfis e permissões.
 
-4. **Escopo Ampliado**: A inclusão de entidades como `Cidades` e `Estados` demonstra uma consideração para dados geográficos que podem ser úteis para visualizações e filtragens adicionais na aplicação.
+4. **Diagrama ER**: O diagrama entidade-relacionamento detalhado fornece uma representação visual clara dos relacion
 
-5. **Diagrama ER**: O diagrama entidade-relacionamento detalhado fornece uma representação visual clara dos relacionamentos entre as entidades, facilitando o entendimento da estrutura da base de dados.
+amentos entre as entidades, facilitando o entendimento da estrutura da base de dados.
 
-6. **Extensibilidade**: A estrutura permite futuras melhorias e adições de funcionalidades, como integração com APIs de mapas para visualização de locais, análise de desempenho pós-evento e automatização de tarefas.
+---
 
+Esse README foi refinado e atualizado com as últimas alterações e detalhes da aplicação.
