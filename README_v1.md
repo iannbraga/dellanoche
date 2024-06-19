@@ -1,25 +1,3 @@
-# README
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-  docker run --name postgres -e POSTGRES_PASSWORD=postgres -p 5434:5432 -d postgres
-  rails db:create db:migrate
-
-* Database initialization
-  rails db:seed
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-
 A aplicação deve permitir que os usuários gerenciem eventos, locais, contatos e informações financeiras de maneira eficiente. Aqui está o contexto detalhado da aplicação:
 
 ### Contexto da Aplicação
@@ -166,65 +144,11 @@ A aplicação visa proporcionar uma plataforma robusta e eficiente para DJs gere
 2. **Política de Privacidade Transparente**:
    - Disponibilização de uma política de privacidade clara e acessível aos usuários, explicando como os dados são coletados, usados e protegidos.
 
-### Modelagem:
-   **Usuarios**:
-   - id
-   - email
-   - senha
-   - nome
-   - sobrenome
-   - ativo
-   - perfil
-
-   **Eventos**:
-   - id
-   - nome
-   - descricao
-   - data_hora_inicio
-   - data_hora_termino
-   - horas_tocadas
-   - cache
-   - covert
-   - local_id
-   - usuario_id
-
-   **Locais**:
-   - id
-   - nome
-   - descricao
-   - localizacao
-   - endereco_id
-
-   **Cidade**:
-   - nome
-   - sigla
-   - Estado
-
-   **Estado**:
-   - nome
-   - sigla
-   
-   **Enderecos**:
-   - id
-   - logradouro
-   - numero
-   - bairro
-   - Cidade
-   - cep
-
-   **Contatos**:
-   - id
-   - nome
-   - telefone_id
-   - local_id
-
-   **Telefones**:
-   - id
-   - ddd
-   - numero
+Com essas funcionalidades, a aplicação oferece uma gestão completa e eficiente para DJs e outros perfis de usuários, garantindo que todos os aspectos dos eventos e informações financeiras sejam bem organizados e acessíveis.
 
 ### Exemplo de Diagrama ER Detalhado:
 
+```plaintext
 Usuarios (id, email, senha, nome, sobrenome, ativo, perfil)
    |
    |---< Eventos (id, nome, descricao, data_hora_inicio, data_hora_termino, horas_tocadas, cache, covert, local_id, usuario_id)
@@ -240,19 +164,61 @@ Usuarios (id, email, senha, nome, sobrenome, ativo, perfil)
                      |--- Cidades (id, nome, sigla, estado_id)
                            |
                            |--- Estados (id, nome, sigla)
+```
 
-### Explicação Modelagem:
-Sim, a modelagem proposta atende muito bem às funcionalidades e ao contexto detalhado para a aplicação de gestão financeira para DJs e administradores. Aqui estão alguns pontos-chave que foram considerados e que fazem sentido:
+###Modelagem###:
+   Usuarios:
+      id
+      email
+      senha
+      nome
+      sobrenome
+      ativo
+      perfil
 
-1. **Entidades Principais**: As entidades como `Usuarios`, `Eventos`, `Locais`, `Enderecos`, `Contatos` e `Telefones` são essenciais para gerenciar todos os aspectos dos eventos e locais associados.
+   Eventos:
+      id
+      nome
+      descricao
+      data_hora_inicio
+      data_hora_termino
+      horas_tocadas
+      cache
+      covert
+      local_id
+      usuario_id
 
-2. **Relacionamentos**: Os relacionamentos entre as entidades estão bem definidos, o que permite uma representação clara das interações entre usuários, eventos, locais, endereços e contatos.
+   Locais:
+      id
+      nome
+      descricao
+      localizacao
+      endereco_id
 
-3. **Funcionalidades Suportadas**: A modelagem permite suportar todas as funcionalidades principais mencionadas, como criação e gestão de eventos, controle financeiro detalhado, gerenciamento de locais e contatos, além da gestão de usuários com diferentes perfis e permissões.
+   Cidade:
+      nome
+      sigla
+      Estado
 
-4. **Escopo Ampliado**: A inclusão de entidades como `Cidades` e `Estados` demonstra uma consideração para dados geográficos que podem ser úteis para visualizações e filtragens adicionais na aplicação.
+   Estado:
+      nome
+      sigla
 
-5. **Diagrama ER**: O diagrama entidade-relacionamento detalhado fornece uma representação visual clara dos relacionamentos entre as entidades, facilitando o entendimento da estrutura da base de dados.
+   Enderecos:
+      id
+      logradouro
+      numero
+      bairro
+      Cidade
+      cep
 
-6. **Extensibilidade**: A estrutura permite futuras melhorias e adições de funcionalidades, como integração com APIs de mapas para visualização de locais, análise de desempenho pós-evento e automatização de tarefas.
+   Contatos:
+      id
+      nome
+      telefone_id
+      local_id
 
+   Telefones:
+      id
+      ddd
+      numero

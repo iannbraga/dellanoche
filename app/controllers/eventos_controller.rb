@@ -3,7 +3,7 @@ class EventosController < ApplicationController
 
   # GET /eventos or /eventos.json
   def index
-    eventos_futuros = Evento.where("data_inicio > ?", Time.now).order("data_inicio ASC")
+    eventos_futuros = Evento.all.where("data_inicio > ?", Time.now).order("data_inicio ASC")
     eventos_passados = Evento.where("data_inicio <= ?", Time.now).order("data_inicio DESC")
     @eventos = eventos_futuros.to_a + eventos_passados.to_a
   end
